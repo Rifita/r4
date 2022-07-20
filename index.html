@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  
+</head>
+<body>
+  <script>
+    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbyyHn76zUy_a2owrUGsftg-V89p5WVN8gjYuz0Cq_X5y9TYtzUO6GJVlZSwFPuuy6qHyA/exec";
+    
+    var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
+    
+    if(k){
+      fetch(AS_URL_BASE+'?k='+k)
+      .then(r => r.text())
+      .then((r) => {
+        console.log(r);
+        //document.write(r);
+        if(r){
+          document.location.replace(r);
+        }
+      })
+      .catch(err => console.log(err))
+    }
+
+  </script>
+  
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  
+  
+</body>
+</html>
